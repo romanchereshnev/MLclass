@@ -12,6 +12,9 @@ from sklearn import linear_model
 warnings.filterwarnings('ignore')
 from sklearn.datasets import load_breast_cancer
 from sklearn.preprocessing import StandardScaler
+from sklearn import tree
+from sklearn.svm import SVC
+
 
 def get_data():
     iris = datasets.load_iris()
@@ -100,6 +103,16 @@ def choose_knn(X, y, X_u):
         neigh.fit(X, y) 
         plot_iris(X, y, X_unseen=X_u, classifier=neigh)
         
+def Tree(X, y):
+    clf = tree.DecisionTreeClassifier()
+    clf = clf.fit(X, y)
+    plot_iris(X, y, classifier=clf)
+
+
+def SVM(X, y):
+    clf = SVC()
+    clf.fit(X, y)
+    plot_iris(X, y, classifier=clf)
         
 def sigm(z):
     return 1.0 / (1.0 + np.exp(-z))

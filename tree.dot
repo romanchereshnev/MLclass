@@ -1,0 +1,25 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label="Ширина лепиестка <= 0.2708\ngini = 0.6667\nsamples = 75\nvalue = [25, 25, 25]\nclass = Iris-Setosa", fillcolor="#e5813900"] ;
+1 [label="gini = 0.0\nsamples = 25\nvalue = [25, 0, 0]\nclass = Iris-Setosa", fillcolor="#e58139ff"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="Ширина лепиестка <= 0.6458\ngini = 0.5\nsamples = 50\nvalue = [0, 25, 25]\nclass = Iris-Versicolor", fillcolor="#39e58100"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label="Длина лепестка <= 0.6695\ngini = 0.0768\nsamples = 25\nvalue = [0, 24, 1]\nclass = Iris-Versicolor", fillcolor="#39e581f4"] ;
+2 -> 3 ;
+4 [label="gini = 0.0\nsamples = 24\nvalue = [0, 24, 0]\nclass = Iris-Versicolor", fillcolor="#39e581ff"] ;
+3 -> 4 ;
+5 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 1]\nclass = Iris-Virginica", fillcolor="#8139e5ff"] ;
+3 -> 5 ;
+6 [label="Длина лепестка <= 0.6525\ngini = 0.0768\nsamples = 25\nvalue = [0, 1, 24]\nclass = Iris-Virginica", fillcolor="#8139e5f4"] ;
+2 -> 6 ;
+7 [label="Ширина лепиестка <= 0.6875\ngini = 0.5\nsamples = 2\nvalue = [0, 1, 1]\nclass = Iris-Versicolor", fillcolor="#39e58100"] ;
+6 -> 7 ;
+8 [label="gini = 0.0\nsamples = 1\nvalue = [0, 0, 1]\nclass = Iris-Virginica", fillcolor="#8139e5ff"] ;
+7 -> 8 ;
+9 [label="gini = 0.0\nsamples = 1\nvalue = [0, 1, 0]\nclass = Iris-Versicolor", fillcolor="#39e581ff"] ;
+7 -> 9 ;
+10 [label="gini = 0.0\nsamples = 23\nvalue = [0, 0, 23]\nclass = Iris-Virginica", fillcolor="#8139e5ff"] ;
+6 -> 10 ;
+}
