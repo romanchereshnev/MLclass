@@ -68,7 +68,7 @@ def choose_slope(X, y):
 def plot_data_and_error(X, y):
     k_slider = IntSlider(min=150000, max=220000, step=2000, value=170000)
     
-    X, y =  get_data()
+    #X, y =  get_data()
 
     @interact(k=k_slider)
     def plot_data_and_hyp_with_error(k):    
@@ -101,16 +101,17 @@ def plot_data_and_J(X, y):
         fig, axis = plt.subplots(1, 2, figsize=(18, 6))
     
         c = 'black'
+        
+        axis[0].plot(np.linspace(0, 120, len(X)), k*np.linspace(0, 120, len(X)) / 1000000, color=c, label="k={0}".format(k))
+    
+        for x_i, y_i in zip(X, y):
+            plt.plot([x_i, x_i], [x_i * k / 1000000, y_i / 1000000], color='red')
+        
 
         axis[0].plot(np.linspace(0, 120, len(X)),  k*np.linspace(0, 120, len(X)) / 1000000, 
                      label="k={0}".format(k), color=c
                     )
-        
-    
-        axis[1].scatter(k, J(k, X, y),  marker="o", label="k={0}".format(k), color=c)
-
-        axis[0].scatter(X, y  / 1000000,  color='black', marker="+")   
-        axis[0].set_title("Данные и гипотезы")
+        axis[0].scatter(X, y / 1000000,  color='black', marker="+")
         axis[0].set_xlabel("Дальность квартиры от метро, метры")
         axis[0].set_ylabel("Цена квартиры, млн рублей")
         axis[0].set_xlim([0, 80])
@@ -121,12 +122,12 @@ def plot_data_and_J(X, y):
         axis[1].set_title("Значение ошибки для каждой гипотезы")
         axis[1].set_ylabel("Значение средней квадратичной ошибки")
         axis[1].set_xlabel("Значение коэфициента")
+        axis[1].scatter(k, J(k, X, y),  marker="o", label="k={0}".format(k), color=c)
         axis[1].set_xlim([140000, 230000])
         axis[1].set_ylim([0, 2e+12])
         axis[1].legend()    
         axis[1].grid()
-        plt.show() 
-  
+        plt.show()   
     
 def plot_all_J(X, y):
     plt.title("Значение ошибки")

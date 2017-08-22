@@ -7,6 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import preprocessing
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
+from matplotlib import rc
 import warnings
 from sklearn import linear_model
 warnings.filterwarnings('ignore')
@@ -14,7 +15,9 @@ from sklearn.datasets import load_breast_cancer
 from sklearn.preprocessing import StandardScaler
 from sklearn import tree
 from sklearn.svm import SVC
-
+        
+font = {'family': 'Verdana', 'weight': 'normal'}
+rc('font', **font)
 
 def get_data():
     iris = datasets.load_iris()
